@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  *
  * @author Raphaël
  */
-public class W2WPracc extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -31,6 +31,18 @@ public class W2WPracc extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
+        
+        /* First step : create the cache folder / file*/
+        CacheDb cacheDb = new CacheDb();
+        // If DB file (for cache) doesn't exists, we will create one
+        if(!cacheDb.exists()) {
+            cacheDb.create();
+        }else{
+            System.out.println("The cache file already exists.");
+        }
+        
+        /* After : Launch the window */
+        launch(args);  
+        
     }
 }
