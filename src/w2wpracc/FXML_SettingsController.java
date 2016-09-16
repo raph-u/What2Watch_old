@@ -44,9 +44,12 @@ public class FXML_SettingsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // Filling the textfield with the saved movie folder path
         if(! this.prefs.getPath().equals("")) {
             this.pathTextField.setText(this.prefs.getPath());
         }
+        
+        //this.prefs.removePath();
     }    
 
     @FXML
