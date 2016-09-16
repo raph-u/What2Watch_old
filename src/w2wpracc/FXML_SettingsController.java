@@ -35,6 +35,9 @@ public class FXML_SettingsController implements Initializable {
     
     private String chosenPath;
     private UserPreferences prefs = new UserPreferences();
+    
+    @FXML
+    private Label error_emptyPathLabel;
 
     /**
      * Initializes the controller class.
@@ -54,14 +57,23 @@ public class FXML_SettingsController implements Initializable {
         configureDirectoryChooser(directoryChooser);
         File file = directoryChooser.showDialog(s1);
         if (file != null) {
-            this.chosenPath = file.getAbsolutePath();
-            pathTextField.setText(file.getAbsolutePath());
+            this.pathTextField.setText(file.getAbsolutePath());
         }
     }
 
     @FXML
     private void setPath(ActionEvent event) {
-        this.prefs.savePath(this.chosenPath);
+        // Making sure the user specified a path for his movie folder
+        if (!this.pathTextField.getText().equals("")) {
+            this.prefs.savePath(this.pathTextField.getText());
+            this.error_emptyPathLabel.setVisible(false);
+            
+            // Closing the settings window
+            Stage stage = (Stage) pathButton.getScene().getWindow();
+            stage.close();
+        } else {
+            this.error_emptyPathLabel.setVisible(true);
+        }
     }
     
     private static void configureDirectoryChooser(final DirectoryChooser directoryChooser) {      
