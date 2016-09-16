@@ -46,6 +46,7 @@ public class Main extends Application {
             System.out.println("The cache file already exists.");
         }
         
+        
         /* MOVE LATER (get Json) */
         try {
             // Get a JSON from an URL
