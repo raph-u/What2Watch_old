@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="w2wpracc.FXMLDocumentController">
+<AnchorPane id="AnchorPane" prefHeight="315.0" prefWidth="388.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="w2wpracc.FXMLDocumentController">
     <children>
         <Button fx:id="button" layoutX="174.0" layoutY="88.0" onAction="#browseFiles" text="Scan directory" />
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
