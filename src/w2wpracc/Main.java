@@ -52,6 +52,7 @@ public class Main extends Application {
         // Fetch the JSON and add data on movie object
         try {
             // Get a JSON from an URL
+            // test
             JSONObject json = ParsingJSON.readJsonFromUrl("http://www.omdbapi.com/?t=titanic&y=&plot=full&r=json");
             // Set data on a movie object
             Movie movie = new Movie();
