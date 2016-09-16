@@ -46,7 +46,7 @@ public class Main extends Application {
             System.out.println("The cache file already exists.");
         }
         
-        
+        DbCompareAndAdd dbCompAndAdd = new DbCompareAndAdd(cacheDb);
         
       
         try {
