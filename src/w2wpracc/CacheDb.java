@@ -9,6 +9,8 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -108,7 +110,29 @@ public class CacheDb {
     }
     
     
-    
+        public String doSqlQuerry(String sql){
+
+    String retour = "";
+
+      try (Connection conn = this.connect();
+           Statement stmt  = conn.createStatement();
+           ResultSet rs    = stmt.executeQuery(sql)){
+           ResultSetMetaData metadata = rs.getMetaData();
+            int columnCount = metadata.getColumnCount();
+            while (rs.next()) {    
+                  for(int i=1;i<=columnCount;i++)
+                  {
+                      retour += rs.getString(i) + ";";
+                  }
+                  
+                retour = retour + "\n";     
+            }
+          
+      } catch (SQLException e) {
+          System.out.println(e.getMessage());
+      } 
+        return retour;
+    }
 
     
     private ArrayList<String> getTablesQueries() {
