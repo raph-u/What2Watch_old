@@ -46,15 +46,20 @@ public class Main extends Application {
             System.out.println("The cache file already exists.");
         }
         
-        /* Move later (get Json) */
+        /* MOVE LATER (get Json) */
         try {
+            // Get a JSON from an URL
             JSONObject json = ParsingJSON.readJsonFromUrl("http://www.omdbapi.com/?t=titanic&y=&plot=full&r=json");
-            String title = json.get("Title").toString();
-            String director = json.get("Director").toString();
-            String actors = json.get("Actors").toString();
-            String year = json.get("Year").toString();
-            String poster = json.get("Poster").toString();
-            String genre = json.get("Genre").toString();
+            // Set data on a movie object
+            Movie movie = new Movie();
+            movie.setTitle(json.get("Title").toString());
+            movie.setYear(json.get("Year").toString());
+            movie.setDirector(json.get("Director").toString());
+            movie.setActors(json.get("Actors").toString());
+            movie.setGenre(json.get("Genre").toString());
+            movie.setPoster(json.get("Poster").toString());
+            movie.setSynopsis(json.get("Plot").toString());
+       
         } catch (JSONException ex) {
             System.out.println("ERROR on parsingJSON (JSON exception) : "+ex.getMessage());
         } catch (IOException ex) {
