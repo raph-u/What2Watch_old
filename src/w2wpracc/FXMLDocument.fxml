@@ -31,6 +31,6 @@
       <Label fx:id="directorsValueLabel" layoutX="255.0" layoutY="230.0" text="Irvin Kershner" />
       <Label fx:id="actorsValueLabel" layoutX="253.0" layoutY="264.0" text=" Mark Hamill, Harrison Ford, Carrie Fisher" />
       <Label fx:id="titleValueLabel" layoutX="256.0" layoutY="105.0" prefHeight="50.0" prefWidth="217.0" text="STAR WARS : EPISODE V - L'EMPIRE CONTRE-ATTAQUE" wrapText="true" />
-      <ComboBox fx:id="categoryComboBox" layoutX="14.0" layoutY="51.0" prefHeight="25.0" prefWidth="462.0" promptText="Recherche par..." />
+      <ComboBox fx:id="categoryComboBox" layoutX="14.0" layoutY="51.0" prefHeight="25.0" prefWidth="462.0" promptText="Rechercher par..." />
     </children>
 </AnchorPane>

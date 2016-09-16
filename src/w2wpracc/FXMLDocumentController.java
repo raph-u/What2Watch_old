@@ -14,6 +14,8 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,6 +43,7 @@ public class FXMLDocumentController implements Initializable {
     private Button settingsButton;
     
     private UserPreferences prefs = new UserPreferences();
+    
     @FXML
     private Button button;
     @FXML
@@ -74,6 +77,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ComboBox<?> categoryComboBox;
     
+    private ObservableList movies = 
+        FXCollections.observableArrayList();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -102,12 +107,15 @@ public class FXMLDocumentController implements Initializable {
                         for (int i = 0; i < extensions.length; i++) {
                             if (o.getFileName().toString().endsWith(extensions[i])) {
                                 movieFiles.add(o.getFileName().toString());
+                                movies.add(o.getFileName().toString());
                                 break;
                             }
                         }
                     });
             
             Iterator<String> it = movieFiles.iterator();
+            
+            movieListView.setItems(movies);
 
             while(it.hasNext()){
                 System.out.println(it.next());
