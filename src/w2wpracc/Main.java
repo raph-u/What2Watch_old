@@ -46,6 +46,7 @@ public class Main extends Application {
             System.out.println("The cache file already exists.");
         }
         
+        
         /* Move later (get Json) */
         try {
             JSONObject json = ParsingJSON.readJsonFromUrl("http://www.omdbapi.com/?t=titanic&y=&plot=full&r=json");
