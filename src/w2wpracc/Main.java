@@ -48,7 +48,8 @@ public class Main extends Application {
         
         DbCompareAndAdd dbCompAndAdd = new DbCompareAndAdd(cacheDb);
         
-      
+        
+        // Fetch the JSON and add data on movie object
         try {
             // Get a JSON from an URL
             JSONObject json = ParsingJSON.readJsonFromUrl("http://www.omdbapi.com/?t=titanic&y=&plot=full&r=json");
